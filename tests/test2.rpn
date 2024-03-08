@@ -1,0 +1,6 @@
+$ Is 33 greater than 32? $ print
+32 33 > print
+$ Is 33 lesser than 32? $ print
+32 33 < print
+$ Is 555 equal to 555? $ print
+555 555 == print

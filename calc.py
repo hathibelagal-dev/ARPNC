@@ -2,8 +2,8 @@ import math
 from util.stack import Stack
 from util.cleanup import *
 import sys
+from keywords import *
 
-keywords = "drop + - * / ** dup print $ upper lower sin cos".split(" ")
 stack = Stack()
 
 if len(sys.argv) < 2:
@@ -46,6 +46,37 @@ def handle_token(op):
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(i1 / i2)
+
+    elif op == ">":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        stack.push(1 if i1 > i2 else 0)
+        
+    elif op == "<":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        stack.push(1 if i1 < i2 else 0)
+        
+    elif op == "==":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        stack.push(1 if i1 == i2 else 0)
+        
+    if op == "e":
+        i1 = stack.pop()
+        stack.push(math.exp(i1))
+
+    if op == "sqrt":
+        i1 = stack.pop()
+        stack.push(i1 ** 0.5)
+
+    if op == "log2":
+        i1 = stack.pop()
+        stack.push(math.log2(i1))
+        
+    if op == "log":
+        i1 = stack.pop()
+        stack.push(math.log(i1))
 
     if op == "drop":
         stack.pop()
