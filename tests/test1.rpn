@@ -1,6 +1,6 @@
-2 3 + 5 5 * - 2 * dup * dup print 2 * print 5 6 * print
-3 5 2 + * print
+2 3.2 + 5 5.1 * - 2 * dup * dup print 2 * print 5 6 * print
+13 25 - print
 $ Now trying exponentiation $ print
-3 3 ** print
+2 -0.3 ** sin cos print
 $ Hello, World! How's it going?? $ print
 $ And now? $ dup print upper print

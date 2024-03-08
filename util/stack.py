@@ -1,3 +1,5 @@
+import re
+
 class Stack:    
     def __init__(self):
         self.data = []
@@ -12,7 +14,7 @@ class Stack:
             self.data.pop()
 
     def push(self, x):
-        if type(x) is str and x.isnumeric():
+        if type(x) is str and re.match(r'^[+-]?\d+(>?\.\d+)?$', x):
             x = float(x)
         self.data.append(x)
 
