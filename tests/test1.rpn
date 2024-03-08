@@ -1,0 +1,2 @@
+2 3 + 5 5 * - 2 * dup * dup print 2 * print 5 6 * print
+3 5 2 + * print

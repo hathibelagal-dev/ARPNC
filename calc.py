@@ -1,10 +1,19 @@
 from util.stack import Stack
+from util.cleanup import *
+import sys
 
 keywords = "drop + - * / dup print".split(" ")
 stack = Stack()
-text = "2 3 + 5 5 * - 2 * dup * dup print 2 * print"
 
-tokens = text.split(" ")
+if len(sys.argv) < 2:
+    print("No input provided")
+    sys.exit(1)
+
+text = None
+with open(sys.argv[1], "r") as f:
+    text = f.read()
+
+tokens = cleanup(text).split(" ")
 
 def handle_token(op):
     if op == "+":
@@ -35,6 +44,8 @@ def handle_token(op):
         print(i1)
 
 for token in tokens:
+    if not token:
+        continue
     if token not in keywords:
         stack.push(token)
     else:
