@@ -18,6 +18,8 @@ keywords = [
     'log2',
     'log',
     'sqrt',
-    'e'
+    'e',
+    'not',
+    'swap'
 ]
 

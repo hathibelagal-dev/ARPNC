@@ -4,7 +4,5 @@ $ Now trying exponentiation $ print
 2 -0.3 ** sin cos print
 $ Hello, World! How's it going?? $ print
 $ And now? $ dup print upper print
-2 log print
-2 log2 print
-3 e 2 + print
-2 sqrt print
+$ Newlines are only for humans, they don't matter $ print
+2 log print 2 log2 print 3 e 2 + print 2 sqrt print

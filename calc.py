@@ -61,6 +61,16 @@ def handle_token(op):
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(1 if i1 == i2 else 0)
+
+    if op == "not":
+        i1 = stack.pop()
+        stack.push(1 if not i1 else 0)
+
+    if op == "swap":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        stack.push(i1)
+        stack.push(i2)
         
     if op == "e":
         i1 = stack.pop()
@@ -112,15 +122,18 @@ def handle_token(op):
         else:
             state["reading_string"] = True
 
-for token in tokens:
-    if not token:
-        continue
-    if state["reading_string"] and token != "$":
-        state["current_string"] += " " + token
-        continue
-    if token not in keywords:
-        stack.push(token)
-    else:
-        handle_token(token)
+try:
+    for token in tokens:
+        if not token:
+            continue
+        if state["reading_string"] and token != "$":
+            state["current_string"] += " " + token
+            continue
+        if token not in keywords:
+            stack.push(token)
+        else:
+            handle_token(token)
+except:
+    print("Invalid program.")
 
 print(stack)
