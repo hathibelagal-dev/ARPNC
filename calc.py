@@ -2,7 +2,7 @@ from util.stack import Stack
 from util.cleanup import *
 import sys
 
-keywords = "drop + - * / dup print".split(" ")
+keywords = "drop + - * / dup print #".split(" ")
 stack = Stack()
 
 if len(sys.argv) < 2:
@@ -14,6 +14,11 @@ with open(sys.argv[1], "r") as f:
     text = f.read()
 
 tokens = cleanup(text).split(" ")
+
+state = {
+    "reading_string": False,
+    "current_string": ""
+}
 
 def handle_token(op):
     if op == "+":
@@ -43,8 +48,19 @@ def handle_token(op):
         i1 = stack.pop()
         print(i1)
 
+    if op == "#":
+        if state["reading_string"]:
+            stack.push(state["current_string"].strip())
+            state["current_string"] = ""
+            state["reading_string"] = False
+        else:
+            state["reading_string"] = True
+
 for token in tokens:
     if not token:
+        continue
+    if state["reading_string"] and token != "#":
+        state["current_string"] += " " + token
         continue
     if token not in keywords:
         stack.push(token)
