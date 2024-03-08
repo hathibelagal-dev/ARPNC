@@ -2,7 +2,7 @@ from util.stack import Stack
 from util.cleanup import *
 import sys
 
-keywords = "drop + - * / dup print #".split(" ")
+keywords = "drop + - * / ** dup print $ upper lower".split(" ")
 stack = Stack()
 
 if len(sys.argv) < 2:
@@ -26,17 +26,22 @@ def handle_token(op):
         i2 = stack.pop()
         stack.push(i1 + i2)
 
-    if op == "-":
+    elif op == "-":
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(i1 - i2)
 
-    if op == "*":
+    elif op == "**":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        stack.push(i1 ** i2)
+
+    elif op == "*":
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(i1 * i2)
 
-    if op == "/":
+    elif op == "/":
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(i1 / i2)
@@ -48,7 +53,15 @@ def handle_token(op):
         i1 = stack.pop()
         print(i1)
 
-    if op == "#":
+    if op == "upper":
+        i1 = stack.pop()
+        stack.push(i1.upper())
+    
+    if op == "lower":
+        i1 = stack.pop()
+        stack.push(i1.lower())
+
+    if op == "$":
         if state["reading_string"]:
             stack.push(state["current_string"].strip())
             state["current_string"] = ""
@@ -59,7 +72,7 @@ def handle_token(op):
 for token in tokens:
     if not token:
         continue
-    if state["reading_string"] and token != "#":
+    if state["reading_string"] and token != "$":
         state["current_string"] += " " + token
         continue
     if token not in keywords:

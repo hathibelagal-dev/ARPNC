@@ -1,4 +1,6 @@
 2 3 + 5 5 * - 2 * dup * dup print 2 * print 5 6 * print
 3 5 2 + * print
-# Hello, World! How's it going?? # print
-# And now? # dup print print
+$ Now trying exponentiation $ print
+3 3 ** print
+$ Hello, World! How's it going?? $ print
+$ And now? $ dup print upper print
