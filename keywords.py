@@ -20,6 +20,8 @@ keywords = [
     'sqrt',
     'e',
     'not',
-    'swap'
+    'swap',
+    'sum',
+    'product'
 ]
 

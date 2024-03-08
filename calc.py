@@ -3,6 +3,7 @@ from util.stack import Stack
 from util.cleanup import *
 import sys
 from keywords import *
+from operator import mul
 
 stack = Stack()
 
@@ -62,6 +63,22 @@ def handle_token(op):
         i2 = stack.pop()
         stack.push(1 if i1 == i2 else 0)
 
+    if op == "sum" or op == "product":
+        data = []
+        while True:
+            data_item = stack.pop()
+            if data_item == ".":
+                break
+            else:
+                data.append(data_item)
+        if op == "sum":
+            stack.push(sum(data))
+        else:
+            result = 1
+            for d in data:
+                result *= d
+            stack.push(result)
+
     if op == "not":
         i1 = stack.pop()
         stack.push(1 if not i1 else 0)
@@ -70,7 +87,7 @@ def handle_token(op):
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(i1)
-        stack.push(i2)
+        stack.push(i2)        
         
     if op == "e":
         i1 = stack.pop()
