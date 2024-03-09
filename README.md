@@ -1,5 +1,5 @@
 # ARPNC
-## Aurora RPN Calculator
+## Advanced RPN Calculator
 
 This is, as the name suggests, an RPN calculator. We make this because we want to make the reverse polish notation popular again. We are nostalgic about those early pocket calculators and computer systems. The main reason RPN became popular during the 1970s was its ability to streamline complex mathematical calculations... while still requiring fewer keystrokes compared to the infix notation. That's exactly what we're trying to achieve in this repo. We try to do away with everything that's not absolutely necessary. No square brackets, no curly braces, no semicolons... you get the idea, we hope! We strongly believe that operator precedence and nested parentheses are hallmarks of a suboptimal language.
 
@@ -81,4 +81,12 @@ Now, here's a test. Can you tell what's happening here:
 
 ```
 5 . 2 3 5 4 2 product + 3 * print . 10 20 30 sum print
+```
+
+We support constants, but not variables. All constants must have @ as the prefix.
+
+```
+2 3 + @a set
+5 6 * @b set
+@a @b + print
 ```
