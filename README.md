@@ -1,5 +1,5 @@
-# YARPNC
-## Yet Another RPN Calculator
+# ARPNC
+## Advanced RPN Calculator
 
 This is, as the name suggests, an RPN calculator. We make this because we want to make the reverse polish notation popular again. We are nostalgic about those early pocket calculators and computer systems. The main reason RPN became popular during the 1970s was its ability to streamline complex mathematical calculations... while still requiring fewer keystrokes compared to the infix notation. That's exactly what we're trying to achieve in this repo. We try to do away with everything that's not absolutely necessary. No square brackets, no curly braces, no semicolons... you get the idea, we hope! We strongly believe that operator precedence and nested parentheses are hallmarks of a suboptimal language.
 
