@@ -5,6 +5,8 @@ import sys
 from keywords import *
 from operator import mul
 
+variables = {}
+functions = {}
 stack = Stack()
 
 if len(sys.argv) < 2:
@@ -135,6 +137,19 @@ def handle_token(op):
         i1 = stack.pop()
         stack.push(i1.lower())
 
+    if op == "decr":
+        i1 = stack.pop()
+        stack.push(i1 - 1)
+
+    if op == "incr":
+        i1 = stack.pop()
+        stack.push(i1 + 1)
+
+    if op == "set":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        variables[i1] = i2
+
     if op == "$":
         if state["reading_string"]:
             stack.push(state["current_string"].strip())
@@ -151,6 +166,9 @@ try:
             state["current_string"] += " " + token
             continue
         if token not in keywords:
+            if token.startswith("@"):
+                if token in variables:
+                    token = variables[token]
             stack.push(token)
         else:
             handle_token(token)

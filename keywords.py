@@ -23,6 +23,9 @@ keywords = [
     'not',
     'swap',
     'sum',
-    'product'
+    'product',
+    'decr',
+    'incr',
+    'set'
 ]
 

@@ -8,3 +8,7 @@ $ Hello, World! How's it going?? $ print
 $ And now? $ dup print upper print
 $ Newlines are only for humans, they don't matter $ print
 2 dup log print log2 print 3 e 2 + print 2 sqrt print
+$ Constants are supported, but no variables allowed $ print
+. 3 2 1 sum @a set
+. 3 2 1 product @b set
+@b decr @c set @a @c + print
