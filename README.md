@@ -1,5 +1,5 @@
 # YARPNC
-Yet Another RPN Calculator
+## Yet Another RPN Calculator
 
 This is, as the name suggests, an RPN calculator. We make this because we want to make the reverse polish notation popular again. We are nostalgic about those early pocket calculators and computer systems. The main reason RPN became popular during the 1970s was its ability to streamline complex mathematical calculations... while still requiring fewer keystrokes compared to the infix notation. That's exactly what we're trying to achieve in this repo. We try to do away with everything that's not absolutely necessary. No square brackets, no curly braces, no semicolons... you get the idea, we hope! We strongly believe that operator precedence and nested parentheses are hallmarks of a suboptimal language.
 
@@ -40,3 +40,39 @@ $ Newlines are only for humans, they don't matter $ print
 ```
 
 If you've used one of those HP calculators from the seventies, this syntax probably makes sense to you immediately. And if you haven't, try to think of this whole program as a bunch of push and pop operations on a stack. We're sure that you'll get it, and that you'll eventually love it. There's something awesome about this retro aesthetic.
+
+We support operations on lists. Consider this program where we try to find the sum of a bunch of numbers:
+
+```
+. 4 5 6 10 15 sum print
+```
+
+The output of this program is:
+
+```
+40.0
+Empty stack
+```
+
+We support comparison operators too. Take a look at this:
+
+```
+$ Is 33 greater than 32? $ print
+32 33 > print
+$ Is 33 lesser than 32? $ print
+32 33 < print
+$ Is 555 equal to 555? $ print
+555 555 == print
+```
+
+The output is, as you might have expected, this:
+
+```
+Is 33 greater than 32?
+1
+Is 33 lesser than 32?
+0
+Is 555 equal to 555?
+1
+Empty stack
+```
