@@ -2,6 +2,8 @@
 13 25 - print
 $ Now trying exponentiation $ print
 2 -0.3 ** sin cos print
+$ And now tan $ print
+0.5 tan print
 $ Hello, World! How's it going?? $ print
 $ And now? $ dup print upper print
 $ Newlines are only for humans, they don't matter $ print

@@ -15,6 +15,7 @@ keywords = [
     'lower',
     'sin',
     'cos',
+    'tan',
     'log2',
     'log',
     'sqrt',

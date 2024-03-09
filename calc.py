@@ -116,6 +116,10 @@ def handle_token(op):
         i1 = stack.pop()
         stack.push(math.cos(i1))
 
+    if op == "tan":
+        i1 = stack.pop()
+        stack.push(math.tan(i1))
+
     if op == "dup":
         stack.dup()
 
@@ -152,5 +156,6 @@ try:
             handle_token(token)
 except:
     print("Invalid program.")
+    sys.exit(1)
 
 print(stack)
