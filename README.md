@@ -12,7 +12,7 @@ $ Hello, World! $ print
 3 2 + 5 * print
 ```
 
-But whitespace is unnecessary. This is an equally valid program:
+But anything more than a space is unnecessary. A single space is all that matters. This is an equally valid program:
 
 ```
 $ Hello, World! $ print 3 2 + 5 * print
