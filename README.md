@@ -76,3 +76,9 @@ Is 555 equal to 555?
 1
 Empty stack
 ```
+
+Now, here's a test. Can you tell what's happening here:
+
+```
+5 . 2 3 5 4 2 product + 3 * print . 10 20 30 sum print
+```
