@@ -1,2 +1,2 @@
 ( :sayHello $ Hello $ print print ) $ World $ sayHello
-70 @x set @x decr sayHello print
+70 @x set @x decr sayHello
