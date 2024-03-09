@@ -7,4 +7,4 @@ $ And now tan $ print
 $ Hello, World! How's it going?? $ print
 $ And now? $ dup print upper print
 $ Newlines are only for humans, they don't matter $ print
-2 log print 2 log2 print 3 e 2 + print 2 sqrt print
+2 dup log print log2 print 3 e 2 + print 2 sqrt print
