@@ -21,7 +21,11 @@ tokens = cleanup(text).split(" ")
 
 state = {
     "reading_string": False,
-    "current_string": ""
+    "current_string": "",
+    "reading_function": False,
+    "current_function": "",
+    "current_function_token_num": None,
+    "current_function_name": None
 }
 
 def handle_token(op):
@@ -158,22 +162,45 @@ def handle_token(op):
         else:
             state["reading_string"] = True
 
-try:
-    for token in tokens:
-        if not token:
-            continue
-        if state["reading_string"] and token != "$":
-            state["current_string"] += " " + token
-            continue
-        if token not in keywords:
-            if token.startswith("@"):
-                if token in variables:
-                    token = variables[token]
-            stack.push(token)
-        else:
-            handle_token(token)
-except:
-    print("Invalid program.")
-    sys.exit(1)
+    if op == "(":
+        state["reading_function"] = True
+        state["current_function_token_num"] = 0
+
+    if op == ")":
+        state["reading_function"] = False
+        functions[state["current_function_name"]] = state["current_function"]
+        state["current_function_name"] = None
+        state["current_function"] = ""
+        state["current_function_token_num"] = None
+
+def iterate(tokens):
+    try:
+        for token in tokens:
+            if not token:
+                continue
+            if state["reading_string"] and token != "$":
+                state["current_string"] += " " + token
+                continue
+            if state["reading_function"] and token != ")":
+                if not state["current_function_token_num"]:
+                    state["current_function_name"] = token[1:]
+                else:
+                    state["current_function"] += " " + token
+                state["current_function_token_num"] += 1
+                continue
+            if token not in keywords and token not in functions:
+                if token.startswith("@"):
+                    if token in variables:
+                        token = variables[token]
+                stack.push(token)
+            elif token in functions:
+                iterate(functions[token].split(" "))
+            else:
+                handle_token(token)
+    except:
+        print("Invalid program.")
+        sys.exit(1)
+
+iterate(tokens)
 
 print(stack)
