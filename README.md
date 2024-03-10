@@ -98,3 +98,9 @@ We support constants, but not variables. All constants must have @ as the prefix
 5 6 * @b set
 @a @b + print
 ```
+
+If you think this language is too wordy, you can "rename" keywords to minimize keystrokes:
+
+```
+( :p print ) ( :s set ) $ Is this better? $ @a s @a p
+```
