@@ -129,6 +129,13 @@ def handle_token(op):
     if op == "dup":
         stack.dup()
 
+    if op == "printnn":
+        i1 = stack.pop()
+        print(i1, end = "")
+
+    if op == "space":
+        stack.push(" ")
+
     if op == "print":
         i1 = stack.pop()
         print(i1)

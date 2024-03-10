@@ -10,6 +10,8 @@ keywords = [
     '==',
     '(', ')',
     'dup',
+    'printnn',
+    'space',
     'print',
     '$',
     'upper',

@@ -26,6 +26,14 @@ Hello, World!
 Empty stack
 ```
 
+You can create functions, but all functions use the same stack. So, functions don't need to have arguments. Consider this:
+
+```
+( :sayHelloTo $ Hello $ printnn space printnn print ) $ Bob $ sayHelloTo
+```
+
+Note that space is a part of the language. If you want to print a single space, you have to use the `space` keyword. It pushes a single space character to the stack.
+
 There's a lot more you can do with this language. This is a completely valid program too(remember, the newlines are optional):
 
 ```
