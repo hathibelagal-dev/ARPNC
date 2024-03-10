@@ -99,6 +99,17 @@ We support constants, but not variables. All constants must have @ as the prefix
 @a @b + print
 ```
 
+Conditional statements generally need to make use of functions. This is because the `if` keyword merely forces the interpreter to skip the next token if there's a zero on the top of the stack. Here's an example:
+
+```
+( :sayYes $ Yes $ print ) ( :sayNo $ No $ print )
+18 @votingAge set
+19 @age set
+$ Can vote? $ print
+@votingAge @age > if sayYes
+@votingAge @age < if sayNo
+```
+
 If you think this language is too wordy, you can "rename" keywords to minimize keystrokes:
 
 ```
