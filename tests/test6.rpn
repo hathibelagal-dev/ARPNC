@@ -1,0 +1,6 @@
+( :sayYes $ Yes $ print ) ( :sayNo $ No $ print )
+18 @votingAge set
+19 @age set
+$ Can vote? $ print
+@votingAge @age > if sayYes
+@votingAge @age < if sayNo

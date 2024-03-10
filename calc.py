@@ -25,7 +25,8 @@ state = {
     "reading_function": False,
     "current_function": "",
     "current_function_token_num": None,
-    "current_function_name": None
+    "current_function_name": None,
+    "run_next": True
 }
 
 def handle_token(op):
@@ -88,6 +89,11 @@ def handle_token(op):
     if op == "not":
         i1 = stack.pop()
         stack.push(1 if not i1 else 0)
+
+    if op == "if":
+        i1 = stack.pop()
+        if i1 == 0:
+            state["run_next"] = False
 
     if op == "swap":
         i1 = stack.pop()
@@ -185,12 +191,18 @@ def iterate(tokens):
         for token in tokens:
             if not token:
                 continue
+            if not state["run_next"]:
+                state["run_next"] = True
+                continue
             if state["reading_string"] and token != "$":
                 state["current_string"] += " " + token
                 continue
             if state["reading_function"] and token != ")":
                 if not state["current_function_token_num"]:
                     state["current_function_name"] = token[1:]
+                    if state["current_function_name"] in keywords:
+                        print(f"ERROR: {state['current_function_name']} is a keyword")
+                        sys.exit(2)
                 else:
                     state["current_function"] += " " + token
                 state["current_function_token_num"] += 1
