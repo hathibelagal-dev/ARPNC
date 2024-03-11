@@ -30,6 +30,8 @@ keywords = [
     'product',
     'decr',
     'incr',
-    'set'
+    'set',
+    'read',
+    'readstr',
 ]
 

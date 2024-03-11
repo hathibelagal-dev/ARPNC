@@ -146,6 +146,14 @@ def handle_token(op):
         i1 = stack.pop()
         print(i1)
 
+    if op == "read":
+        i1 = input()
+        stack.push(i1)
+
+    if op == "readstr":
+        i1 = input()
+        stack.push(i1)
+
     if op == "upper":
         i1 = stack.pop()
         stack.push(i1.upper())

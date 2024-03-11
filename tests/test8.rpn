@@ -1,0 +1,3 @@
+$ Enter name : $ print
+readstr @name set 
+$ Hello $ printnn space printnn @name print

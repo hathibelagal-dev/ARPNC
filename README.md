@@ -110,7 +110,23 @@ $ Can vote? $ print
 @votingAge @age < if sayNo
 ```
 
-If you think this language is too wordy, you can "rename" keywords to minimize keystrokes:
+Recursion is allowed. Here's some simple code that can print the multiplication table of a user-provided number:
+
+```
+( :loop dup @v * print decr dup 0 < if loop )
+$ Enter number : $ print
+read @v set 10 loop drop
+```
+
+Note that you need to use the `readstr` keyword when you are expected a string from the user. For example:
+
+```
+$ Enter name : $ print
+readstr @name set 
+$ Hello $ printnn space printnn @name print
+```
+
+If you think this language is too wordy, you can always "rename" keywords to minimize keystrokes:
 
 ```
 ( :p print ) ( :s set ) $ Is this better? $ @a s @a p

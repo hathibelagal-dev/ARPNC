@@ -1,0 +1,3 @@
+( :loop dup @v * print decr dup 0 < if loop )
+$ Enter number : $ print
+read @v set 10 loop drop
