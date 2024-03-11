@@ -14,8 +14,12 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 text = None
-with open(sys.argv[1], "r") as f:
-    text = f.read()
+try:
+    with open(sys.argv[1], "r") as f:
+        text = f.read()
+except:
+    print("Error: Couldn't read file.")
+    sys.exit(1)
 
 tokens = cleanup(text).split(" ")
 

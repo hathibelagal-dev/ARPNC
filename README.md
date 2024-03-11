@@ -23,7 +23,7 @@ This is a stack-based calculator, so the output is:
 ```
 Hello, World!
 25.0
-Empty stack
+ok
 ```
 
 You can create functions, but all functions use the same stack. So, functions don't need to have arguments. Consider this:
@@ -59,7 +59,7 @@ The output of this program is:
 
 ```
 40.0
-Empty stack
+ok
 ```
 
 We support comparison operators too. Take a look at this:
@@ -82,7 +82,7 @@ Is 33 lesser than 32?
 0
 Is 555 equal to 555?
 1
-Empty stack
+ok
 ```
 
 Now, here's a test. Can you tell what's happening here:

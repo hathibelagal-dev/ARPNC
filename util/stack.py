@@ -23,5 +23,5 @@ class Stack:
 
     def __repr__(self):
         if self.data:
-            return str(self.data)
-        return "Empty stack"
+            return f"Stack still has data: {self.data}"
+        return "ok"
