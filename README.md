@@ -1,7 +1,7 @@
 # ARPNC
 ## Advanced RPN Calculator
 
-This is, as the name suggests, an RPN calculator. We make this because we want to make the reverse polish notation popular again. We are nostalgic about those early pocket calculators and computer systems. The main reason RPN became popular during the 1970s was its ability to streamline complex mathematical calculations... while still requiring fewer keystrokes compared to the infix notation. That's exactly what we're trying to achieve in this repo. We try to do away with everything that's not absolutely necessary. No square brackets, no curly braces, no semicolons... you get the idea, we hope! We strongly believe that operator precedence and nested parentheses are hallmarks of a suboptimal language.
+This is, as the name suggests, an RPN calculator. We make this because we want to make the reverse polish notation popular again. We are nostalgic about those early pocket calculators and computer systems. The main reason RPN became popular during the 1970s was its ability to streamline complex mathematical calculations... while still requiring fewer keystrokes compared to the infix notation. That's exactly what we're trying to achieve in this repo. We try to do away with everything that's not absolutely necessary. No square brackets, no curly braces, no semicolons... you get the idea, we hope!
 
 We believe that RPN is a more natural and intuitive way to do math, and write simple programs. 
 
@@ -12,7 +12,7 @@ $ Hello, World! $ print
 3 2 + 5 * print
 ```
 
-But anything more than a space is unnecessary. A single space is all that matters. This is an equally valid program:
+But anything more than a space is unnecessary. A single space is all that matters, and it matters a lot. For example, you can't skip the spaces after and before the `$` symbols when creating a string. But otherwise, this is an equally valid program:
 
 ```
 $ Hello, World! $ print 3 2 + 5 * print
@@ -32,7 +32,7 @@ You can create functions, but all functions use the same stack. So, functions do
 ( :sayHelloTo $ Hello $ printnn space printnn print ) $ Bob $ sayHelloTo
 ```
 
-Note that space is a part of the language. If you want to print a single space, you have to use the `space` keyword. It pushes a single space character to the stack.
+Because space is a part of the language, if you want to print a single space, you have to use the `space` keyword. It pushes a single space character to the stack.
 
 There's a lot more you can do with this language. This is a completely valid program too(remember, the newlines are optional):
 
@@ -118,7 +118,7 @@ $ Enter number : $ print
 read @v set 10 loop drop
 ```
 
-Note that you need to use the `readstr` keyword when you are expected a string from the user. For example:
+Note that you need to use the `readstr` keyword when you are expecting a string from the user. For example:
 
 ```
 $ Enter name : $ print
@@ -131,3 +131,5 @@ If you think this language is too wordy, you can always "rename" keywords to min
 ```
 ( :p print ) ( :s set ) $ Is this better? $ @a s @a p
 ```
+
+Take a look at the files in the **tests** directory for more examples.
