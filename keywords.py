@@ -40,5 +40,6 @@ keywords = [
     'set',
     'read',
     'readstr',
+    'peek',
 ]
 

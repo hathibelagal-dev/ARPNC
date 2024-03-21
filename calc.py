@@ -11,20 +11,6 @@ variables = {}
 functions = {}
 stack = Stack()
 
-if len(sys.argv) < 2:
-    print("No input provided")
-    sys.exit(1)
-
-text = None
-try:
-    with open(sys.argv[1], "r") as f:
-        text = f.read()
-except:
-    print("Error: Couldn't read file.")
-    sys.exit(1)
-
-tokens = cleanup(text).split(" ")
-
 state = {
     "reading_string": False,
     "current_string": "",
@@ -173,6 +159,9 @@ def handle_token(op):
         i1 = stack.pop()
         print(i1)
 
+    if op == "peek":
+        stack.peek()
+
     if op == "read":
         i1 = input()
         stack.push(i1)
@@ -254,6 +243,33 @@ def iterate(tokens):
         print("Invalid program.")
         sys.exit(1)
 
-iterate(tokens)
+def execute(program, repl = False):
+    tokens = cleanup(program)
+    if repl:
+        tokens.append("peek")
+    iterate(tokens)
+    stack.print(not repl)
 
-print(stack)
+mode = 0
+if len(sys.argv) == 2:
+    mode = 1
+
+if mode == 1:
+    text = None
+    try:
+        with open(sys.argv[1], "r") as f:
+            text = f.read()
+    except:
+        print("Error: Couldn't read file.")
+        sys.exit(1)
+    execute(text)
+
+if mode == 0:
+    print("Welcome to ARPNC v0.9")
+    text = None
+    while True:
+        print("# ", end = "")
+        text = input()
+        if text == "quit":
+            sys.exit(0)
+        execute(text, repl = True)

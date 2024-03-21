@@ -9,6 +9,12 @@ class Stack:
             latest_item = self.data[-1]
             self.data.append(latest_item)
 
+    def peek(self):
+        if len(self.data) > 0:
+            print(self.data[-1])
+        else:
+            print("Stack empty")
+
     def drop(self):
         if len(self.data) > 0:
             self.data.pop()
@@ -24,7 +30,11 @@ class Stack:
     def pop2(self):
         return [self.data.pop(), self.data.pop()]
 
-    def __repr__(self):
+    def print(self, show_contents = True):
+        output = None
         if self.data:
-            return f"Stack still has data: {self.data}"
-        return "ok"
+            output = f"Stack has data: {self.data}"
+        else:
+            output = "ok"            
+        if show_contents:
+            print(output)
