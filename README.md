@@ -26,6 +26,25 @@ Hello, World!
 ok
 ```
 
+If you use the REPL, you don't have to say `print`. And in that mode, you also have the option to just hit **enter** after every input, just like the old calculators. Use the word `quit` to end the session. Here's a sample session:
+
+```
+Welcome to ARPNC v0.9
+# 3
+3.0
+# 2
+2.0
+# +
+5.0
+# 2
+2.0
+# *
+10.0
+# quit
+```
+
+---
+
 You can create functions, but all functions use the same stack. So, functions don't need to have arguments. Consider this:
 
 ```
