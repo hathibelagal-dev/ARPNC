@@ -37,28 +37,23 @@ state = {
 
 def handle_token(op):
     if op == "+":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1 + i2)
 
     elif op == "-":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1 - i2)
 
     elif op == "**":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1 ** i2)
 
     elif op == "*":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1 * i2)
 
     elif op == "/":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1 / i2)
 
     elif op == "rsh":
@@ -72,18 +67,15 @@ def handle_token(op):
         stack.push(float(i1 << i2))
 
     elif op == ">":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(1 if i1 > i2 else 0)
         
     elif op == "<":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(1 if i1 < i2 else 0)
         
     elif op == "==":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(1 if i1 == i2 else 0)
 
     if op == "sum" or op == "product":
@@ -112,8 +104,7 @@ def handle_token(op):
             state["run_next"] = False
 
     if op == "swap":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1)
         stack.push(i2)  
         
@@ -122,8 +113,7 @@ def handle_token(op):
         stack.push(math.exp(i1))
 
     if op == "mod":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         stack.push(i1 % i2)
 
     if op == "sqrt":
@@ -208,8 +198,7 @@ def handle_token(op):
         stack.push(i1 + 1)
 
     if op == "set":
-        i1 = stack.pop()
-        i2 = stack.pop()
+        i1, i2 = stack.pop2()
         variables[i1] = i2
 
     if op == "$":

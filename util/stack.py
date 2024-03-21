@@ -21,6 +21,9 @@ class Stack:
     def pop(self):
         return self.data.pop()
 
+    def pop2(self):
+        return [self.data.pop(), self.data.pop()]
+
     def __repr__(self):
         if self.data:
             return f"Stack still has data: {self.data}"
