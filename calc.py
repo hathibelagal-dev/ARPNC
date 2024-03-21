@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import math
 from util.stack import Stack
 from util.cleanup import *
@@ -59,6 +61,16 @@ def handle_token(op):
         i2 = stack.pop()
         stack.push(i1 / i2)
 
+    elif op == "rsh":
+        i1 = int(stack.pop())
+        i2 = int(stack.pop())
+        stack.push(float(i1 >> i2))
+
+    elif op == "lsh":
+        i1 = int(stack.pop())
+        i2 = int(stack.pop())
+        stack.push(float(i1 << i2))
+
     elif op == ">":
         i1 = stack.pop()
         i2 = stack.pop()
@@ -103,11 +115,16 @@ def handle_token(op):
         i1 = stack.pop()
         i2 = stack.pop()
         stack.push(i1)
-        stack.push(i2)        
+        stack.push(i2)  
         
     if op == "e":
         i1 = stack.pop()
         stack.push(math.exp(i1))
+
+    if op == "mod":
+        i1 = stack.pop()
+        i2 = stack.pop()
+        stack.push(i1 % i2)
 
     if op == "sqrt":
         i1 = stack.pop()
