@@ -14,3 +14,5 @@ $ Constants are supported, but no variables allowed $ print
 @b decr @c set @a @c + print
 2.1 4 19 mod 9 * mod print
 3 2 19 lsh rsh print
+5 51 * dup dup dup print16 print8 print2 print
+5 factorial print

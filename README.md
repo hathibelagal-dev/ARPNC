@@ -9,20 +9,20 @@ This is a valid program:
 
 ```
 $ Hello, World! $ print
-3 2 + 5 * print
+3 2 + 5 * factorial print
 ```
 
 But anything more than a space is unnecessary. A single space is all that matters, and it matters a lot. For example, you can't skip the spaces after and before the `$` symbols when creating a string. But otherwise, this is an equally valid program:
 
 ```
-$ Hello, World! $ print 3 2 + 5 * print
+$ Hello, World! $ print 3 2 + 5 * factorial print
 ```
 
 This is a stack-based calculator, so the output is:
 
 ```
 Hello, World!
-25.0
+15511210043330985984000000
 ok
 ```
 
@@ -41,10 +41,19 @@ There's a lot more you can do with this language. This is a completely valid pro
 13 25 - print
 $ Now trying exponentiation $ print
 2 -0.3 ** sin cos print
+$ And now tan $ print
+0.5 tan print
 $ Hello, World! How's it going?? $ print
 $ And now? $ dup print upper print
 $ Newlines are only for humans, they don't matter $ print
-2 log print 2 log2 print 3 e 2 + print 2 sqrt print
+2 dup log print log2 print 3 e 2 + print 2 sqrt print
+$ Constants are supported, but no variables allowed $ print
+. 3 2 1 sum @a set
+. 3 2 1 product @b set
+@b decr @c set @a @c + print
+2.1 4 19 mod 9 * mod print
+3 2 19 lsh rsh print
+5 51 * dup dup dup print16 print8 print2 print
 ```
 
 If you've used one of those HP calculators from the seventies, this syntax probably makes sense to you immediately. And if you haven't, try to think of this whole program as a bunch of push and pop operations on a stack. We're sure that you'll get it, and that you'll eventually love it. There's something awesome about this retro aesthetic.

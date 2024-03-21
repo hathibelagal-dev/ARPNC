@@ -144,6 +144,10 @@ def handle_token(op):
     if op == "sin":
         i1 = stack.pop()
         stack.push(math.sin(i1))
+
+    if op == "factorial":
+        i1 = stack.pop()
+        stack.push(math.factorial(i1))
     
     if op == "cos":
         i1 = stack.pop()
@@ -159,6 +163,18 @@ def handle_token(op):
     if op == "printnn":
         i1 = stack.pop()
         print(i1, end = "")
+
+    if op == "print16":
+        i1 = stack.pop()
+        print(hex(int(i1))[2:])
+
+    if op == "print8":
+        i1 = stack.pop()
+        print(oct(int(i1))[2:])
+
+    if op == "print2":
+        i1 = stack.pop()
+        print(bin(int(i1))[2:])
 
     if op == "space":
         stack.push(" ")
